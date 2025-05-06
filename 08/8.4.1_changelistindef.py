@@ -1,0 +1,32 @@
+unprinted_designs = ['airpods3', 'ipod', 'switch2']
+completed_models = []
+
+while unprinted_designs:
+    current_design = unprinted_designs.pop()
+
+    print('printing model' + current_design)
+    completed_models.append(current_design)
+
+print('\ncompleted models are:')
+for completed_model in completed_models:
+    print(completed_model)
+
+
+
+def print_models(unprinted_designs, completed_models):
+    """print each designs, then move them to completed_models"""
+    while unprinted_designs:
+      current_design = unprinted_designs.pop()
+      print('printing model' + current_design)
+      completed_models.append(current_design)
+
+def show_completed_models(completed_models):
+    print('\ncompleted models are:')
+    for completed_model in completed_models:
+        print(completed_model)
+
+unprinted_designs = ['airpods3', 'ipod', 'switch2']
+completed_models = []
+
+print_models(unprinted_designs, completed_models)
+show_completed_models((completed_models))
