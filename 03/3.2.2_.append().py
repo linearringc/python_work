@@ -1,5 +1,5 @@
 bike = ['dahang', 'giant', 'brompton']
-#bike.append('trek')
+bike.append('trek')
 print(bike)
 
 
