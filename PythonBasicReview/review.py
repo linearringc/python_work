@@ -125,6 +125,10 @@ print(sum(digits))
 squares = [value**2 for value in range(1,11)]
 print(squares)
 
+numbers = [1, 2, 3]
+numbers = [number + 1 for number in numbers]
+print(numbers)
+
 #4.4.1 切片 [0:1]/ [:1]/ [1:]/ [-1:]
 players = ['nayina', 'Chenyi', 'luoyonghao']
 print(players[0:1])
@@ -152,6 +156,130 @@ print(dimensions[0])
 for dimension in dimensions:
     print(dimension)
 
+#4.5.3 给元组重新赋值
+dimensions = (5,8)
+print(dimensions)
 
 
+#Chapter 5 if语句 if == else
+players = [0, 1, 2]
+for player in players:
+    if player == 1:
+        print('nayina')
+    else:
+        print('chenyi')
+#检查相等时不考虑大小写 .lower() ==
+players =['chenyi', 'Huchenfeng', 'Liting']
+for player in players:
+    if player.lower() == 'huchenfeng':
+        print('banned')
+    else:
+        print('unbanned')
+#检查是否不相等 !=
+    if player != 'chenyi':
+        print('dislike second hand iphone')
 
+#5.2.5 检查多个条件 == and/or >=
+#5.2.6 检查特定值是否包含在列表中 (not)in
+#缩进的作用：如果测试通过了，执行if语句后面的所有代码行，否则将忽略他们
+players2 =['chenyi', 'Huchenfeng', 'Liting']
+user = 'amy'
+if user not in players2:
+    print('amy is not here!')
+else:
+    print('amy is here')
+
+#5.3.2 判断多个条件 if elif else 只能判断一个条件，判断多个条件请用多个单独的if
+ages= (1,29,34,66,78,99)
+for age in ages:
+    if age < 30:
+        print('I am young')
+    elif age < 80:
+        print('I am felling good')
+    else:
+        print('so tired')
+#5.4.2 检查列表不是空的
+meals = []
+if meals:#当列表至少包含一个元素时，python会返回true
+    for meal in meals:
+        print('do you want eggs?')
+else:
+     print('please arrange your order.')
+
+
+#Chapter 6 字典 { , }可以将任何python对象作为字典的值
+#6.2.1 访问字典的值
+alien = {'meme':'bibithedog'}
+print(alien['meme'])
+
+#6.2.2 添加键值对 [] = ''
+alien = {1:'amy', 2:'bomb', 3:'amy'}
+alien[3] = 'cici'
+alien[8] = 'vivi'
+print (alien)
+
+#6.2.5 删除键值对 del
+del alien[2]
+print (alien)
+
+#6.3.1 遍历字典 for key, value in .items()
+for key, value in alien.items():
+    print(key,value)
+
+#6.3.2 遍历字典中所有键 .keys()
+for key in alien.keys():
+    print(key)
+#6.3.3 按顺序遍历字典中的所有键 .sorted()
+for key in sorted(alien.keys()):
+    print(key)
+
+#6.3.4 遍历字典中所有值  .values()
+for value in alien.values():
+    print(value)
+#去重 .set()
+for value in set(alien.values()):
+    print(value)
+
+#6.4 嵌套
+#6.4.1  字典列表
+aliens = []
+for alien in range(30):
+    alien = {'color' : 'blue', 'name' : 'Chenyi'}
+    aliens.append(alien)
+
+for alien in aliens[:3]:
+    alien['color'] = 'milk'
+print(aliens)
+
+#6.4.2 在字典中存储列表
+pizza = {
+    1 : 'apple',
+    2 : ['banana', 'pear']
+}
+print(pizza[1])
+for fruit in pizza[2]:
+    print(fruit)
+
+#6.4.3  在字典中存储字典
+personal_profile = {
+    'bini' : {
+        'age' : 18,
+        'eye_color' : 'blue',
+        'job' : 'game tester'
+    },
+
+    'vivi' :{
+        'age' : 19,
+        'eye_color' : ['grey','white'],
+        'job' : 'game tester lead'
+    }
+}
+for value in personal_profile.values():
+    eye_color = value['eye_color']#value[key] 键访问
+    if isinstance(eye_color, list):  # 检查是否是列表
+        for color in eye_color:  # 循环打印每个颜色
+            print(color)
+    else:  # 如果是字符串，直接打印
+        print(eye_color)
+
+#Chapter7 用户输入和while循环
