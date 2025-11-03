@@ -260,6 +260,7 @@ print(pizza[1])
 for fruit in pizza[2]:
     print(fruit)
 
+print(pizza[2][0])#只打印字典key=2的第1个value
 #6.4.3  在字典中存储字典
 personal_profile = {
     'bini' : {
@@ -283,3 +284,78 @@ for value in personal_profile.values():
         print(eye_color)
 
 #Chapter7 用户输入和while循环
+message = input('I am a dog')
+print(input)
+#7.1.1  print(name)
+name = input("please enter your name: ")
+print("welcome " + name)
+#7.2.2 int() 将输入视为数值
+age = input('please enter your age: ')
+age = int(age)
+print(age)
+#7.1.2 使用if else 判断输入的值
+age = input('please enter your age: ')
+age = int(age)
+if age >= 8 :
+    print('you are old.')
+else:
+    print('you are young')
+#7.1.3 % 求模运算符 返回余数
+num = input('How many pizzas have you cooked?')
+num = int(num)
+if num % 2 == 0:
+    print("That's fine.")
+else:
+    print('Fuck you!')
+#7.2.1 While循环 message = ''
+prompt = 'Hello man, are you fine?'
+prompt += '\nplease give me your answer here: '
+message = ''
+while message != 'quit':
+    message = input(prompt)
+    if message != 'quit':
+        print(message)
+
+#7.2.3 使用标志 active = true/false
+prompt = 'please give me your answer here: '
+active = True
+while active:
+    message = input(prompt)
+    if message == 'quit':
+        active = False #此处替换成break可以立即退出循环
+    else:
+        print(message)
+
+#7.2.5 continue 不再执行剩余代码并退出循环
+num = 0
+while num < 10:
+    num += 1
+    if num % 2 == 0:
+        continue
+    print(num)
+
+#7.3 使用while循环处理列表和字典
+
+#7.3.2 删除包含特定值的所有元素 group.remove(1)
+group1 = [1, 2, 3, 1, 1, 2]
+group2 = []
+while 1 in group1:
+    group1.remove(1)
+
+print(group1)
+
+#7.3.3 使用用户输入填充字典
+response = {}
+active = True
+while active:
+    name = input("what's your name?: ")
+    age = input("please tell me your age: ")
+    response[name] = age
+    question = input('please type quit to quit.')
+    if question.lower() == 'quit':
+        active = False
+
+print('---Survey Results---')
+for name, age in response.items():
+    print('name: '+ name + '\nage: '+ age)
+
